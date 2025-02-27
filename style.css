@@ -35,6 +35,17 @@ h1 {
 }
 
 /* Input Section */
+.input-label {
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    gap: 10px;
+}
+
+.input-label img {
+    width: 20px;
+}
+
 .input-section {
     background-color: #f9f9f9;
     padding: 20px;
@@ -45,6 +56,51 @@ h1 {
 .form-group {
     margin-bottom: 15px;
     text-align: left;
+    position: relative;
+}
+
+.help {
+    /* display: none; */
+    display: block;
+    /* background-color: rgba(0, 0, 0, 0.8); */
+    background: linear-gradient(135deg, #e8d7fb, #d1e2ff);
+    /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); */
+    -webkit-box-shadow: 2px 6px 24px -11px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 2px 6px 24px -11px rgba(0, 0, 0, 0.75);
+    box-shadow: 2px 6px 24px -11px rgba(0, 0, 0, 0.75);
+    color: #000;
+    padding: 10px;
+    border-radius: 5px;
+    position: absolute;
+    font-size: 14px;
+    max-width: 350px;
+    z-index: 10;
+    /* right: 10px; */
+}
+
+#numOfSubjHelp {
+    top: -30px;
+    right: -90px;
+}
+
+#prevGPAHelp {
+    top: -30px;
+    right: 10px;
+}
+
+#totalPrevGPAHelp {
+    top: -30px;
+    right: -5px;
+}
+
+.help-icon {
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+}
+
+.help-icon img {
+    width: 20px;
 }
 
 label {
@@ -54,7 +110,8 @@ label {
     color: #555;
 }
 
-input, select {
+input,
+select {
     width: 100%;
     padding: 10px;
     border: 1px solid #ddd;
@@ -65,7 +122,8 @@ input, select {
     transition: border-color 0.3s ease;
 }
 
-input:focus, select:focus {
+input:focus,
+select:focus {
     border-color: #6a11cb;
     outline: none;
 }
@@ -117,8 +175,8 @@ button:hover {
 .error-message {
     margin-top: 20px;
     padding: 10px;
-    background-color: #ffebee;
-    color: #d32f2f;
+    background-color: #ffc5ce;
+    color: #ff0000;
     border-radius: 5px;
     font-size: 16px;
     display: none;

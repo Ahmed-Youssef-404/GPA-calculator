@@ -74,3 +74,4 @@ function calculateGPA() {
     document.getElementById('currentGPA').innerHTML = `Current Semester GPA: <span class="result">${currentGPA.toFixed(2)}</span>`;
     document.getElementById('newTotalGPA').innerHTML = `New Total GPA: <span class="result">${newTotalGPA.toFixed(2)}</span>`;
 }
+

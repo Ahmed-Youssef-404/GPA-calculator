@@ -5,9 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:title" content="Calculate your GPA easily!">
-    <meta property="og:description"content="Simple GPA calculator to Calculate your current and cumulative GPA easily!">
-    <!-- <meta property="og:image" content="https://gpa-calculator-a52.netlify.app/GPA.png"> -->
-    <meta property="og:image" content="https://i.imgur.com/VmnlmKx.png"?v=1>
+    <meta property="og:description" content="Simple GPA calculator to Calculate your current and cumulative GPA easily!">
+    <meta property="og:image" content="https://i.imgur.com/VmnlmKx.png" ?v=1>
     <meta property="og:image:width" content="600">
     <meta property="og:image:height" content="315">
     <meta property="og:url" content="https://gpa-calculator-a52.netlify.app/">
@@ -21,18 +20,33 @@
     <div class="container">
         <h1>📊 GPA Calculator</h1>
         <p class="subtitle">Calculate your current and cumulative GPA easily!</p>
+
         <!-- Input Section -->
         <div class="input-section">
             <div class="form-group">
-                <label for="subjects">Number of Subjects:</label>
+                <div class="input-label">
+                    <label for="subjects">Number of last semester Subjects:</label>
+                    <span class="help-icon" data-target="numOfSubjHelp"><img src="help.svg" alt="help"></span>
+                </div>
+                <p class="help" id="numOfSubjHelp">The number of subjects you registered in current semester <b>(Semester you want to calculate its GPA)</b></p>
                 <input type="number" id="subjects" min="1" placeholder="Enter number of subjects" required>
             </div>
+
             <div class="form-group">
-                <label for="previousGPA">Previous Total GPA:</label>
+                <div class="input-label">
+                    <label for="previousGPA">Previous Total GPA:</label>
+                    <span class="help-icon" data-target="prevGPAHelp"><img src="help.svg" alt="help"></span>
+                </div>
+                <p class="help" id="prevGPAHelp">Your previous Total GPA (Maximum value: 4) <b>(The total GPA before the current semester)</b></p>
                 <input type="number" id="previousGPA" step="0.01" placeholder="Enter previous GPA" required>
             </div>
+
             <div class="form-group">
-                <label for="previousCredits">Total Previous Credits:</label>
+                <div class="input-label">
+                    <label for="previousCredits">Total Previous Credits:</label>
+                    <span class="help-icon" data-target="totalPrevGPAHelp"><img src="help.svg" alt="help"></span>
+                </div>
+                <p class="help" id="totalPrevGPAHelp">Total credits you have taken before the current semester <b>(The total credits not included in the current semester)</b></p>
                 <input type="number" id="previousCredits" placeholder="Enter previous total credits" required>
             </div>
         </div>
@@ -42,33 +56,33 @@
 
         <!-- Calculate Button -->
         <button onclick="calculateGPA()">Calculate GPA</button>
+        
+        <!-- Error Message -->
+        <div id="error-message" class="error-message"></div>
 
         <!-- Output Section -->
         <div class="output-section">
             <p id="currentGPA">Current Semester GPA: <span class="result">-</span></p>
             <p id="newTotalGPA">New Total GPA: <span class="result">-</span></p>
         </div>
-
-        <div class="footer"
-            style="background: linear-gradient(135deg, #2575fc, #6a11cb); padding: 20px; border-radius: 10px; margin-top: 20px; color: white; text-align: center;">
-            <h4>&copy; 2025 Ahmed Youssef</h4>
-            <div class="contactIcons" style="margin-top: 10px;">
-                <a href="https://www.linkedin.com/in/ahmed-youssef-37732b2b6/"
-                    style="color: #ffcc00; text-decoration: none; margin: 0 10px;" target="_blank">LinkedIn</a>
-                <a href="mailto:Ahmed.youssef.5522.52@gmail.com"
-                    style="color: #ffcc00; text-decoration: none; margin: 0 10px;" target="_blank">Email</a>
-                <a href="whatsapp://send?phone=+201158973342"
-                    style="color: #ffcc00; text-decoration: none; margin: 0 10px;" target="_blank">WhatsApp</a>
-            </div>
-        </div>
-
-
-        <!-- Error Message -->
-        <div id="error-message" class="error-message"></div>
     </div>
 
+    <script>
+        document.querySelectorAll('.help').forEach(help => help.style.display = 'none');
 
-    <script src="script.js"></script>
+        document.querySelectorAll('.help-icon').forEach(icon => {
+            icon.addEventListener('mouseenter', function() {
+                document.getElementById(this.dataset.target).style.display = 'block';
+            });
+            icon.addEventListener('mouseleave', function() {
+                document.getElementById(this.dataset.target).style.display = 'none';
+            });
+            icon.addEventListener('click', function() {
+                const helpText = document.getElementById(this.dataset.target);
+                helpText.style.display = helpText.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+    </script>
 </body>
 
 </html>

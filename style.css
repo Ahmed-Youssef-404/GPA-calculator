@@ -38,7 +38,7 @@ h1 {
 .input-label {
     display: flex;
     align-items: center;
-    /* justify-content: center; */
+    justify-content: space-between;
     gap: 10px;
 }
 
@@ -80,17 +80,17 @@ h1 {
 
 #numOfSubjHelp {
     top: -30px;
-    right: -90px;
+    right: 25px;
 }
 
 #prevGPAHelp {
     top: -30px;
-    right: 10px;
+    right: 25px;
 }
 
 #totalPrevGPAHelp {
     top: -30px;
-    right: -5px;
+    right: 25px;
 }
 
 .help-icon {

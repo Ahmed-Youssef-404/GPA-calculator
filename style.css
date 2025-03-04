@@ -202,9 +202,26 @@ button:hover {
     /* text-align: start; */
 }
 
+.math {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    height: 150px;
+    /* border: solid red; */
+    max-width: 100%;
+    overflow-x: auto; /* لمنع التمدد الزائد وإتاحة التمرير عند الحاجة */
+}
+
 .math math{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 20px;
+    font-size: 16px;
     color: #000000;
-    margin-top: 30px;
+    margin: 15px;
+}
+
+@media (min-width: 768px) {
+    .math math {
+        font-size: 20px;
+    }
 }

@@ -75,3 +75,41 @@ function calculateGPA() {
     document.getElementById('newTotalGPA').innerHTML = `New Total GPA: <span class="result">${newTotalGPA.toFixed(2)}</span>`;
 }
 
+document.querySelectorAll('.help').forEach(help => help.style.display = 'none');
+document.querySelectorAll('.help-icon').forEach(icon => {
+    // للأجهزة التي تدعم الماوس (سطح المكتب)
+    icon.addEventListener('mouseenter', function () {
+        const target = document.getElementById(this.dataset.target);
+        if (target) {
+            target.style.display = 'block';
+        }
+    });
+
+    icon.addEventListener('mouseleave', function () {
+        const target = document.getElementById(this.dataset.target);
+        if (target) {
+            target.style.display = 'none';
+        }
+    });
+
+    // للأجهزة التي تدعم اللمس (الموبايل)
+    icon.addEventListener('touchstart', function (e) {
+        e.preventDefault(); // علشان نمنع السلوك الافتراضي
+        const target = document.getElementById(this.dataset.target);
+        if (target) {
+            target.style.display = target.style.display === 'block' ? 'none' : 'block';
+        }
+    });
+});
+
+// التأكد من إخفاء الرسالة عند الضغط في أي مكان خارجها
+document.addEventListener('click', function (event) {
+    if (event.target.closest('.help') || event.target.closest('.help-icon')) {
+        return;
+    }
+
+    document.querySelectorAll('.help').forEach(help => {
+        help.style.display = 'none';
+    });
+});
+

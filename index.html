@@ -27,7 +27,9 @@
             <div class="form-group">
                 <div class="input-label">
                     <label for="subjects">Number of last semester Subjects:</label>
-                    <span class="help-icon" data-target="numOfSubjHelp"><img src="help.svg" alt="help"></span>
+                    <span class="help-icon" data-target="numOfSubjHelp">
+                        <img class="help-icon" src="help.svg" alt="help">
+                    </span>
                 </div>
                 <p class="help" id="numOfSubjHelp">The number of subjects you registered in current semester
                     <b>(Semester you want to calculate its GPA)</b>
@@ -38,7 +40,9 @@
             <div class="form-group">
                 <div class="input-label">
                     <label for="previousGPA">Previous Total GPA:</label>
-                    <span class="help-icon" data-target="prevGPAHelp"><img src="help.svg" alt="help"></span>
+                    <span class="help-icon" data-target="prevGPAHelp">
+                        <img class="help-icon" src="help.svg" alt="help">
+                    </span>
                 </div>
                 <p class="help" id="prevGPAHelp">Your previous Total GPA (Maximum value: 4) <b>(The total GPA before the
                         current semester)</b></p>
@@ -48,7 +52,9 @@
             <div class="form-group">
                 <div class="input-label">
                     <label for="previousCredits">Total Previous Credits:</label>
-                    <span class="help-icon" data-target="totalPrevGPAHelp"><img src="help.svg" alt="help"></span>
+                    <span class="help-icon" data-target="totalPrevGPAHelp">
+                        <img class="help-icon" src="help.svg" alt="help">
+                    </span>
                 </div>
                 <p class="help" id="totalPrevGPAHelp">Total credits you have taken before the current semester <b>(The
                         total credits not included in the current semester)</b></p>
@@ -70,6 +76,7 @@
             <p id="currentGPA">Current Semester GPA: <span class="result">-</span></p>
             <p id="newTotalGPA">New Total GPA: <span class="result">-</span></p>
         </div>
+
         <div class="footer"
             style="background: linear-gradient(135deg, #2575fc, #6a11cb); padding: 20px; border-radius: 10px; margin-top: 20px; color: white; text-align: center;">
             <h4>&copy; 2024 Ahmed Youssef</h4>
@@ -84,22 +91,6 @@
         </div>
     </div>
 
-    <script>
-        document.querySelectorAll('.help').forEach(help => help.style.display = 'none');
-
-        document.querySelectorAll('.help-icon').forEach(icon => {
-            icon.addEventListener('mouseenter', function () {
-                document.getElementById(this.dataset.target).style.display = 'block';
-            });
-            icon.addEventListener('mouseleave', function () {
-                document.getElementById(this.dataset.target).style.display = 'none';
-            });
-            icon.addEventListener('click', function () {
-                const helpText = document.getElementById(this.dataset.target);
-                helpText.style.display = helpText.style.display === 'block' ? 'none' : 'block';
-            });
-        });
-    </script>
     <script src="script.js"></script>
 </body>
 

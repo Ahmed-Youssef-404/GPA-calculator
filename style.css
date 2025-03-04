@@ -154,7 +154,7 @@ button:hover {
 /* Output Section */
 .output-section {
     margin-top: 20px;
-    padding: 20px;
+    padding: 10px;
     background-color: #f9f9f9;
     border-radius: 10px;
     text-align: left;
@@ -180,4 +180,31 @@ button:hover {
     border-radius: 5px;
     font-size: 16px;
     display: none;
+}
+
+.notes{
+    /* border: solid #ffc5ce; */
+}
+
+.notes-table{
+    border-collapse: collapse;
+    width: 100%;
+    margin: 0 auto;
+    /* border: 3px solid #ff0026; */
+    /* background: #000; */
+}
+
+.notes-table tr, td{
+    border: 1px solid #e9e9e9;
+    border-left: none;
+    border-right: none;
+    padding: 3px;
+    /* text-align: start; */
+}
+
+.math math{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+    color: #000000;
+    margin-top: 30px;
 }

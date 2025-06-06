@@ -34,6 +34,92 @@ h1 {
     margin-bottom: 30px;
 }
 
+
+.how-buttons-holder {
+    /* border: solid red; */
+    display: flex;
+    justify-content: space-between;
+}
+
+.how-button {
+    width: 250px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.popup-overlay {
+    /* border: solid red; */
+    /* width: 1000px;
+    height: 1000px; */
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 998;
+
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    width: 90%;
+    max-width: 600px;
+    padding: 20px 25px;
+    border-radius: 16px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    font-size: 15px;
+    text-align: left;
+    line-height: 1.5;
+    z-index: 999;
+    overflow-y: auto;
+}
+
+.popup h2 {
+    margin: 0px 0;
+    text-align: center;
+}
+
+.popup ul {
+    margin: 5px 0;
+    padding-right: 5px;
+}
+
+.popup p {
+    margin: 5px 0;
+}
+
+.popup button {
+    width: 20%;
+    height: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+@media (max-width: 750px) {
+    .popup {
+        /* width: 70%; */
+        margin: 0 0 !important;
+        font-size: small;
+        /* border: red solid 5px; */
+    }
+}
+
 /* Input Section */
 .input-label {
     display: flex;
@@ -182,11 +268,9 @@ button:hover {
     display: none;
 }
 
-.notes{
-    /* border: solid #ffc5ce; */
-}
 
-.notes-table{
+
+.notes-table {
     border-collapse: collapse;
     width: 100%;
     margin: 0 auto;
@@ -194,7 +278,8 @@ button:hover {
     /* background: #000; */
 }
 
-.notes-table tr, td{
+.notes-table tr,
+td {
     border: 1px solid #e9e9e9;
     border-left: none;
     border-right: none;
@@ -210,10 +295,11 @@ button:hover {
     height: 150px;
     /* border: solid red; */
     max-width: 100%;
-    overflow-x: auto; /* لمنع التمدد الزائد وإتاحة التمرير عند الحاجة */
+    overflow-x: auto;
+    /* لمنع التمدد الزائد وإتاحة التمرير عند الحاجة */
 }
 
-.math math{
+.math math {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 16px;
     color: #000000;

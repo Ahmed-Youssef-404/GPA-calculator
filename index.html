@@ -22,6 +22,54 @@
         <h1>📊 GPA Calculator</h1>
         <p class="subtitle">Calculate your current and cumulative GPA easily!</p>
 
+        <div class="how">
+            <div class="how-buttons-holder">
+                <button class="how-button" onclick="document.getElementById('popupHolder').style.display='flex'; document.getElementById('popup-overlay').style.display='block'">
+                    How it works?
+                </button>
+                <!-- <button class="how-button">
+                    Change Language
+                </button> -->
+            </div>
+
+            <div class="popup-overlay" id="popup-overlay" onclick="document.getElementById('popupHolder').style.display='none'
+                                               document.getElementById('popup-overlay').style.display='none'"></div>
+
+            <div class="popupHolder" id="popupHolder" style="display: none;">
+                <div class="popup">
+                    <h2>How to Use the Tool</h2>
+                    <ul>
+                        <li>Enter the <strong>number of courses</strong> you have registered for this semester
+                            (excluding courses not counted in the cumulative GPA).</li>
+                        <li>Enter your current <strong>GPA</strong>.</li>
+                        <li>Enter the <strong>number of credit hours</strong> you have completed in previous
+                            semesters
+                            (excluding the current semester).</li>
+                    </ul>
+                    <p>After that, you will see <strong>two fields for each course:</strong></p>
+                    <ul>
+                        <li>The first to select the <strong>grade you received</strong> in this course.</li>
+                        <li>The second to enter the <strong>credit hours</strong> for the course.</li>
+                    </ul>
+                    <p>When finished, click the <strong>"Calculate GPA"</strong> button, and the following results
+                        will
+                        appear:</p>
+                    <ul>
+                        <li><strong>Current Semester GPA:</strong> GPA for the most recent semester.</li>
+                        <li><strong>New Cumulative GPA:</strong> The updated overall GPA after including this
+                            semester's
+                            results.</li>
+                    </ul>
+                    <button class="close-btn" onclick="document.getElementById('popupHolder').style.display='none'
+                                               document.getElementById('popup-overlay').style.display='none'">
+                        Close
+                    </button>
+                </div>
+            </div>
+
+
+        </div>
+
         <!-- Input Section -->
         <div class="input-section">
             <div class="form-group">

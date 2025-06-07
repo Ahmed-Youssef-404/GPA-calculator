@@ -7,12 +7,12 @@
 
 .arabic {
     --help_top: -30px;
-    --help_right: 160px;
+    --help_right: 190px;
     --help_gpa_top: -25px;
-    --help_gpa_right: 215px;
+    --help_gpa_right: 225px;
     --text_dir: right;
     --flex_start: end;
-    --test: green
+    --test: green;
 }
 
 

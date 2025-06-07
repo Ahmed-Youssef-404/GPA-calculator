@@ -14,55 +14,30 @@
     <meta property="og:type" content="website">
 
     <title>GPA Calculator</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 
-<body>
+<body class="english">
+
     <div class="container">
-        <h1>📊 GPA Calculator</h1>
-        <p class="subtitle">Calculate your current and cumulative GPA easily!</p>
+        <h1 id="mainTitle"></h1>
+        <p class="subtitle" id="subtitle"></p>
 
         <div class="how">
             <div class="how-buttons-holder">
-                <button class="how-button" onclick="document.getElementById('popupHolder').style.display='flex'; document.getElementById('popup-overlay').style.display='block'">
-                    How it works?
+                <button class="how-button" id="changeLang">
                 </button>
-                <!-- <button class="how-button">
-                    Change Language
-                </button> -->
+                <button class="how-button" id="how-button" onclick="showPopup()">
+                </button>
             </div>
 
-            <div class="popup-overlay" id="popup-overlay" onclick="document.getElementById('popupHolder').style.display='none'
-                                               document.getElementById('popup-overlay').style.display='none'"></div>
+            <div class="popup-overlay" id="popup-overlay" onclick="hidePopup()" style="display: none;"></div>
 
             <div class="popupHolder" id="popupHolder" style="display: none;">
                 <div class="popup">
-                    <h2>How to Use the Tool</h2>
-                    <ul>
-                        <li>Enter the <strong>number of courses</strong> you have registered for this semester
-                            (excluding courses not counted in the cumulative GPA).</li>
-                        <li>Enter your current <strong>GPA</strong>.</li>
-                        <li>Enter the <strong>number of credit hours</strong> you have completed in previous
-                            semesters
-                            (excluding the current semester).</li>
-                    </ul>
-                    <p>After that, you will see <strong>two fields for each course:</strong></p>
-                    <ul>
-                        <li>The first to select the <strong>grade you received</strong> in this course.</li>
-                        <li>The second to enter the <strong>credit hours</strong> for the course.</li>
-                    </ul>
-                    <p>When finished, click the <strong>"Calculate GPA"</strong> button, and the following results
-                        will
-                        appear:</p>
-                    <ul>
-                        <li><strong>Current Semester GPA:</strong> GPA for the most recent semester.</li>
-                        <li><strong>New Cumulative GPA:</strong> The updated overall GPA after including this
-                            semester's
-                            results.</li>
-                    </ul>
-                    <button class="close-btn" onclick="document.getElementById('popupHolder').style.display='none'
-                                               document.getElementById('popup-overlay').style.display='none'">
-                        Close
+                    <div id="popup"></div>
+
+                    <button class="close-btn" id="close-btn" onclick="hidePopup()">
                     </button>
                 </div>
             </div>
@@ -74,44 +49,41 @@
         <div class="input-section">
             <div class="form-group">
                 <div class="input-label">
-                    <label for="subjects">Number of last semester Subjects:</label>
+                    <label for="subjects" id="numOfSubjects"></label>
                     <span class="help-icon" data-target="numOfSubjHelp">
-                        <img class="help-icon" src="help.svg" alt="help">
+                        <img class="help-icon" src="assistes/help.svg" alt="help">
                     </span>
                 </div>
                 <p class="help" id="numOfSubjHelp">
-                    The number of subjects you registered in the current semester
-                    <b>(Semester you want to calculate its GPA)</b>
+
                 </p>
-                <input type="number" id="subjects" min="1" placeholder="Enter number of subjects" required>
+                <input type="number" id="subjects" min="1" required>
             </div>
 
             <div class="form-group">
                 <div class="input-label">
-                    <label for="previousGPA">Previous Cumulative GPA:</label>
+                    <label for="previousGPA" id="prevGPA"></label>
                     <span class="help-icon" data-target="prevGPAHelp">
-                        <img class="help-icon" src="help.svg" alt="help">
+                        <img class="help-icon" src="assistes/help.svg" alt="help">
                     </span>
                 </div>
                 <p class="help" id="prevGPAHelp">
-                    Your previous Total GPA (Maximum value: 4)
-                    <b>(The total GPA before the current semester)</b>
+
                 </p>
-                <input type="number" id="previousGPA" step="0.01" placeholder="Enter previous GPA" required>
+                <input type="number" id="previousGPA" step="0.01" required>
             </div>
 
             <div class="form-group">
                 <div class="input-label">
-                    <label for="previousCredits">Total Accumulated (Previous) Credits:</label>
-                    <span class="help-icon" data-target="totalPrevGPAHelp">
-                        <img class="help-icon" src="help.svg" alt="help">
+                    <label for="previousCredits" id="totalPrevCredits"></label>
+                    <span class="help-icon" data-target="totalPrevCreditsHelp">
+                        <img class="help-icon" src="assistes/help.svg" alt="help">
                     </span>
                 </div>
-                <p class="help" id="totalPrevGPAHelp">
-                    Total credit hours you have taken before the current semester
-                    <b>(The total credit hours not included in the current semester)</b>
+                <p class="help" id="totalPrevCreditsHelp">
+
                 </p>
-                <input type="number" id="previousCredits" placeholder="Enter previous total credits" required>
+                <input type="number" id="previousCredits" required>
             </div>
         </div>
 
@@ -119,24 +91,24 @@
         <div id="subjects-container" class="subjects-container"></div>
 
         <!-- Calculate Button -->
-        <button onclick="calculateGPA()">Calculate GPA</button>
+        <button onclick="calculateGPA()" id="calculateButton"></button>
 
         <!-- Error Message -->
         <div id="error-message" class="error-message"></div>
 
         <!-- Output Section -->
         <div class="output-section">
-            <p id="currentGPA">Current Semester GPA: <span class="result">-</span></p>
-            <p id="newTotalGPA">New Total GPA: <span class="result">-</span></p>
+            <p id="currentGPA"><span class="result">-</span></p>
+            <p id="newTotalGPA"><span class="result">-</span></p>
         </div>
 
         <div class="notes">
-            <p>Please note that the clculations are based on the following:</p>
+            <p id="noteThat"></p>
             <table class="notes-table">
                 <tr>
-                    <th>GPA</th>
-                    <th>Percentage Range</th>
-                    <th>Grade</th>
+                    <th id="tableGPA"></th>
+                    <th id="tablePercentage"></th>
+                    <th id="tableGrade"></th>
                 </tr>
                 <tr>
                     <td>4</td>
@@ -184,44 +156,12 @@
                     <td>F</td>
                 </tr>
             </table>
-            <div class="math">
-                <math xmlns="http://www.w3.org/1998/Math/MathML">
-                    <mi>Semester GPA</mi>
-                    <mo>=</mo>
-                    <mfrac>
-                        <mrow>
-                            <mo>&#8721;</mo> <!-- Summation symbol -->
-                            <mo>(</mo>
-                            <mi>Grade Points</mi>
-                            <mo>&#215;</mo> <!-- Multiplication symbol -->
-                            <mi>Credit Hours</mi>
-                            <mo>)</mo>
-                        </mrow>
-                        <mrow>
-                            <mi>Total Semester Credit Hours</mi>
-                        </mrow>
-                    </mfrac>
-                </math>
+            <div class="math" id="math">
 
-                <math xmlns="http://www.w3.org/1998/Math/MathML">
-                    <mi>Cumulative GPA</mi>
-                    <mo>=</mo>
-                    <mfrac>
-                        <mrow>
-                            <mo>&#8721;</mo> <!-- Summation symbol -->
-                            <mo>(</mo>
-                            <mi>Semester GPA</mi>
-                            <mo>&#215;</mo>
-                            <mi>Semester Credit Hours</mi>
-                            <mo>)</mo>
-                        </mrow>
-                        <mrow>
-                            <mi>Total Accumulated Credit Hours</mi>
-                        </mrow>
-                    </mfrac>
-                </math>
             </div>
         </div>
+
+
 
         <div class="footer"
             style="background: linear-gradient(135deg, #2575fc, #6a11cb); padding: 20px; border-radius: 10px; margin-top: 20px; color: white; text-align: center;">
@@ -237,7 +177,11 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+
+
+
+    <script src="script/calculation.js"></script>
+    <script src="script/translate.js"></script>
 </body>
 
 </html>

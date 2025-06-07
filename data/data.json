@@ -1,0 +1,46 @@
+{
+  "en": {
+    "mainTitle": "📊 GPA Calculator",
+    "subtitle": "Calculate your current and cumulative GPA easily!",
+    "changeLang": "تغيير اللغة",
+    "how-button": "How it works?",
+    "popup":"<h2>How to Use the Tool</h2><ul><li>Enter the <strong>number of courses</strong> you have registered for this semester (excluding courses not counted in the cumulative GPA).</li><li>Enter your current <strong>GPA</strong>.</li><li>Enter the <strong>number of credit hours</strong> you have completed in previous semesters (excluding the current semester).</li><li>If this is your first semester, enter <strong>0</strong> for both your <strong>GPA</strong> and <strong>previous credit hours</strong>.</li></ul><p>After that, you will see <strong>two fields for each course:</strong></p><ul><li>The first to select the <strong>grade you received</strong> in this course.</li><li>The second to enter the <strong>credit hours</strong> for the course.</li></ul><p>When finished, click the <strong>\"Calculate GPA\"</strong> button, and the following results will appear:</p><ul><li><strong>Current Semester GPA:</strong> GPA for the most recent semester.</li><li><strong>New Cumulative GPA:</strong> The updated overall GPA after including this semester's results.</li></ul>",
+    "close-btn": "Close",
+    "numOfSubjects": "Number of last semester Subjects:",
+    "numOfSubjHelp": "The number of subjects you registered in the current semester <b>(Semester you want to calculate its GPA)</b>",
+    "prevGPA": "Previous Cumulative GPA:",
+    "prevGPAHelp": "Your previous Total GPA (Maximum value: 4) <b>(The total GPA before the current semester)</b>",
+    "totalPrevCredits": "Total Accumulated (Previous) Credits:",
+    "totalPrevCreditsHelp": "Total credit hours you have taken before the current semester <b>(The total credit hours not included in the current semester)</b>",
+    "calculateButton": "Calculate GPA",
+    "currentGPA": "Current Semester GPA: ",
+    "newTotalGPA": "New Total GPA: ",
+    "noteThat": "Please note that the clculations are based on the following:",
+    "tableGPA": "Points",
+    "tablePercentage": "Percentage Range",
+    "tableGrade": "Grade",
+    "math": "<math xmlns=\\\"http://www.w3.org/1998/Math/MathML\\\"><mi>Semester GPA</mi><mo>=</mo><mfrac><mrow><mo>&#8721;</mo><mo>(</mo><mi>Grade Points</mi><mo>&#215;</mo><mi>Credit Hours</mi><mo>)</mo></mrow><mrow><mi>Total Semester Credit Hours</mi></mrow></mfrac></math> <math xmlns=\\\"http://www.w3.org/1998/Math/MathML\\\"><mi>Cumulative GPA</mi><mo>=</mo><mfrac><mrow><mo>&#8721;</mo><mo>(</mo><mi>Semester GPA</mi><mo>&#215;</mo><mi>Semester Credit Hours</mi><mo>)</mo></mrow><mrow><mi>Total Accumulated Credit Hours</mi></mrow></mfrac></math>"
+  },
+  "ar": {
+    "mainTitle": "📊 حاسبة المعدل التراكمي",
+    "subtitle": "احسب معدلك الفصلي والتراكمي بسهولة!",
+    "changeLang": "Change Language",
+    "how-button": "كيف تعمل؟",
+    "popup":"<h2>كيفية استخدام الأداة</h2><ul><li>أدخل عدد <strong>المقررات</strong> التي قمت بتسجيلها في هذا الفصل الدراسي (مع استثناء المقررات غير المحتسبة في المعدل التراكمي).</li><li>أدخل <strong>المعدل التراكمي الحالي</strong> (GPA) الخاص بك.</li><li>أدخل عدد <strong>الساعات المعتمدة</strong> التي أنجزتها في الفصول الدراسية السابقة (دون احتساب ساعات الفصل الدراسي الحالي).</li><li>إذا كان هذا هو أول فصل دراسي لك، فأدخل <strong>0</strong> في <strong>خانة المعدل التراكمي وعدد الساعات السابقة</strong>.</li></ul><p>بعد ذلك، ستظهر لك <strong>خانتان لكل مقرر:</strong></p><ul><li>الأولى لاختيار <strong>الدرجة التي حصلت عليها</strong> في هذا المقرر.</li><li>الثانية لإدخال <strong>عدد الساعات المعتمدة</strong> الخاصة به.</li></ul><p>عند الانتهاء، اضغط على زر <strong>\"حساب المعدل\"</strong>، وستظهر لك النتائج التالية:</p><ul><li><strong>معدل الفصل الحالي:</strong> GPA للفصل الدراسي الأخير.</li><li><strong>المعدل التراكمي الجديد:</strong> ال GPA الكلي الجديد بعد احتساب نتائج هذا الفصل.</li></ul>",
+    "close-btn": "إغلاق",
+    "numOfSubjects": "عدد المواد في الفصل الحالي:",
+    "numOfSubjHelp": "عدد المواد المسجلة في الفصل الحالي <b>(الفصل الذي تريد حساب معدله)</b>",
+    "prevGPA": "المعدل التراكمي السابق:",
+    "prevGPAHelp": "المعدل التراكمي قبل الفصل الحالي (الحد الأقصى: 4)",
+    "totalPrevCredits": "إجمالي الساعات المتراكمة السابقة:",
+    "totalPrevCreditsHelp": "إجمالي عدد ساعات المعتمدة الحاصل عليها قبل الفصل الحالي <b>(إجمالي عدد الساعات المعتمدة التي حصلت عليها دون إضافة ساعات الفصل الدراسي الحالي)</b>",
+    "calculateButton": "حساب المعدل",
+    "currentGPA": "معدل الفصل الحالي: ",
+    "newTotalGPA": "المعدل التراكمي الجديد: ",
+    "noteThat": "يرجى ملاحظة أن الحسابات تعتمد على النسب التالية:",
+    "tableGPA": "المعدل",
+    "tablePercentage": "النسبة المئوية",
+    "tableGrade": "التقدير",
+    "math": "<math xmlns=\\\"http://www.w3.org/1998/Math/MathML\\\"><mi>معدل الفصل</mi><mo>=</mo><mfrac><mrow><mo>&#8721;</mo><mo>(</mo><mi>معدل التقدير</mi><mo>&#215;</mo><mi>ساعات المادة</mi><mo>)</mo></mrow><mrow><mi>إجمالي ساعات الفصل</mi></mrow></mfrac></math> <math xmlns=\\\"http://www.w3.org/1998/Math/MathML\\\"><mi>المعدل التراكمي</mi><mo>=</mo><mfrac><mrow><mo>&#8721;</mo><mo>(</mo><mi>معدل الفصل</mi><mo>&#215;</mo><mi>ساعات الفصل</mi><mo>)</mo></mrow><mrow><mi>إجمالي الساعات المعتمدة المتراكمة</mi></mrow></mfrac></math>"
+  }
+}

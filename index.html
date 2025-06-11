@@ -25,10 +25,8 @@
 
         <div class="how">
             <div class="how-buttons-holder">
-                <button class="how-button" id="changeLang">
-                </button>
-                <button class="how-button" id="how-button" onclick="showPopup()">
-                </button>
+                <button class="how-button" id="changeLang"></button>
+                <button class="how-button" id="how-button" onclick="showPopup()"></button>
             </div>
 
             <div class="popup-overlay" id="popup-overlay" onclick="hidePopup()" style="display: none;"></div>
@@ -36,12 +34,9 @@
             <div class="popupHolder" id="popupHolder" style="display: none;">
                 <div class="popup">
                     <div id="popup"></div>
-
-                    <button class="close-btn" id="close-btn" onclick="hidePopup()">
-                    </button>
+                    <button class="close-btn" id="close-btn" onclick="hidePopup()"></button>
                 </div>
             </div>
-
 
         </div>
 
@@ -54,10 +49,8 @@
                         <img class="help-icon" src="assistes/help.svg" alt="help">
                     </span>
                 </div>
-                <p class="help" id="numOfSubjHelp">
-
-                </p>
-                <input type="number" id="subjects" min="1" required>
+                <p class="help" id="numOfSubjHelp"></p>
+                <input type="number" id="subjects" class="inputNumber" min="1" required>
             </div>
 
             <div class="form-group">
@@ -67,10 +60,8 @@
                         <img class="help-icon" src="assistes/help.svg" alt="help">
                     </span>
                 </div>
-                <p class="help" id="prevGPAHelp">
-
-                </p>
-                <input type="number" id="previousGPA" step="0.01" required>
+                <p class="help" id="prevGPAHelp"></p>
+                <input type="number" id="previousGPA" class="inputNumber" step="0.01" required>
             </div>
 
             <div class="form-group">
@@ -80,9 +71,7 @@
                         <img class="help-icon" src="assistes/help.svg" alt="help">
                     </span>
                 </div>
-                <p class="help" id="totalPrevCreditsHelp">
-
-                </p>
+                <p class="help" id="totalPrevCreditsHelp"></p>
                 <input type="number" id="previousCredits" required>
             </div>
         </div>
@@ -182,6 +171,8 @@
 
     <script src="script/calculation.js"></script>
     <script src="script/translate.js"></script>
+
+
 </body>
 
 </html>

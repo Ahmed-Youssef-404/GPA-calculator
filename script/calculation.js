@@ -5,7 +5,7 @@ document.addEventListener('stateChanged', (event) => {
     // استقبل القيمة الجديدة من الحدث
     const newState = event.detail.newState;
     // console.log(newState)
-    console.log(`Calculation.js: عرفت إن الحالة اتغيرت! القيمة الجديدة هي ${newState}`);
+    // console.log(`Calculation.js: عرفت إن الحالة اتغيرت! القيمة الجديدة هي ${newState}`);
 
     if (newState === 'ar') {
         // currentLang = 'ar'
@@ -18,28 +18,26 @@ document.addEventListener('stateChanged', (event) => {
         document.body.classList.remove('arabic');
         document.body.classList.add('english');
     }
-    console.log("Is it English? " + isEnglish)
+    // console.log("Is it English? " + isEnglish)
     clear()
 });
 
-
+// Clear all input fields and the Error message
 function clear() {
     document.getElementById('subjects').value = ""
     document.getElementById('previousGPA').value = ""
     document.getElementById('previousCredits').value = ""
     document.getElementById('subjects-container').innerHTML = ""
     errorMessage.style.display = 'none';
-
 }
 
+// Clear aoutputs
 function clearPoints() {
     document.getElementById('currentGPA').innerHTML = `${isEnglish ? "Current Semester GPA" : "معدل الفصل الحالي"}:`
-
-    document.getElementById('newTotalGPA').innerHTML = `${isEnglish ? "New Total GPA" : "المعدل التراكمي الجديد"}:`
+    document.getElementById('newTotalGPA').innerHTML = `${isEnglish ? "New Total Cumulative GPA" : "المعدل التراكمي الجديد"}:`
 }
 
-
-// Replace these functions in calculation.js
+// Show the poput
 function showPopup() {
     const overlay = document.getElementById('popup-overlay');
     const popupHolder = document.getElementById('popupHolder');
@@ -55,6 +53,7 @@ function showPopup() {
     document.querySelector('.popup').classList.add('show');
 }
 
+// Hide the poput
 function hidePopup() {
     const overlay = document.getElementById('popup-overlay');
     const popup = document.querySelector('.popup');
@@ -68,6 +67,8 @@ function hidePopup() {
         document.getElementById('popupHolder').style.display = 'none';
     }, 300);
 }
+
+// Show input fields for every subject
 document.getElementById('subjects').addEventListener('change', function () {
     const subjectsContainer = document.getElementById('subjects-container');
     subjectsContainer.innerHTML = '';
@@ -76,7 +77,6 @@ document.getElementById('subjects').addEventListener('change', function () {
     for (let i = 1; i <= numSubjects; i++) {
         subjectsContainer.innerHTML += `
         <div class=oneSubjec>
-        
           <div class="form-group">
             <label for="grade${i}">
               ${isEnglish ? `Subject ${i} Grade:` : `درجة المادة ${i} :`}
@@ -105,14 +105,20 @@ document.getElementById('subjects').addEventListener('change', function () {
               required
             >
           </div>
-          </div>
           <div class="lin"></div>
         `;
     }
 });
 
 const errorMessage = document.getElementById('error-message');
+function showErrorMessage(english, arabic) {
+    errorMessage.innerText = isEnglish ? english : arabic;
+    errorMessage.style.display = 'block';
+    clearPoints()
+}
 
+
+// Calculateions function
 function calculateGPA() {
     errorMessage.style.display = 'none';
 
@@ -122,16 +128,19 @@ function calculateGPA() {
 
     // Check if any of the main fields are empty
     if (!numSubjects || !previousGPA || !previousCredits) {
-        errorMessage.innerText = isEnglish ? "Please fill in all the required fields." : "يرجى ملء جميع الحقول المطلوبة";
-        errorMessage.style.display = 'block';
-        clearPoints()
+        showErrorMessage("Please fill in all the required fields.", "يرجى ملء جميع الحقول المطلوبة.")
+        return;
+    }
+
+    // Check the value of the GPA (between 0.00 and 4.00)
+    if (previousGPA > 4 || previousGPA < 0) {
+        showErrorMessage("GPA must be between 0.00 and 4.00","المعدل التراكمي يجب أن يكون بين 0.00 و 4.00")
         return;
     }
 
     let totalGradePoints = 0;
     let totalCredits = 0;
     let isValid = true;
-    // let gpaIsMore4 = false;
 
     for (let i = 1; i <= numSubjects; i++) {
         const grade = document.getElementById(`grade${i}`).value;
@@ -140,35 +149,18 @@ function calculateGPA() {
         // Check if any subject grade or credits field is empty
         if (!grade || !credits) {
             isValid = false;
-            break;
+            showErrorMessage("Please fill in all the subject grades and credits.", ".يرجى ملء جميع درجات المواد والساعات المعتمدة")
+            return;
         }
 
         if (credits <= 0) {
-            errorMessage.innerText = isEnglish ? "Course credits must be at least 1" : "عدد الساعات المعتمدة للمادة يجب أن يساوي على الأقل 1";
-            errorMessage.style.display = 'block';
-            clearPoints()
+            showErrorMessage("Course credits must be at least 1.", "عدد الساعات المعتمدة للمادة يجب أن يساوي على الأقل 1.")
             return;
         }
 
         totalGradePoints += parseFloat(grade) * parseFloat(credits);
         totalCredits += parseFloat(credits);
     }
-
-    if (!isValid) {
-        errorMessage.innerText = isEnglish ? "Please fill in all the subject grades and credits." : "يرجى ملء جميع درجات المواد والساعات المعتمدة";
-        errorMessage.style.display = 'block';
-        clearPoints()
-        return;
-    }
-
-    if (previousGPA > 4) {
-        errorMessage.innerText = isEnglish ? "GPA must be less than or equal to 4.00" : "المعدل التراكمي يجب أن يكون أقل من أو يساوي 4.00";
-        errorMessage.style.display = 'block';
-        clearPoints()
-        return;
-    }
-
-
 
 
     const currentGPA = totalGradePoints / totalCredits;
@@ -181,11 +173,12 @@ function calculateGPA() {
     <span class="result">${currentGPA.toFixed(2)}</span>`;
 
     document.getElementById('newTotalGPA').innerHTML = `
-    ${isEnglish ? "New Total GPA" : "المعدل التراكمي الجديد"}: 
+    ${isEnglish ? "New Total Cumulative GPA" : "المعدل التراكمي الجديد"}: 
     <span class="result">${newTotalGPA.toFixed(2)}</span>`;
 
 }
 
+// Show "help" when hovering with the mouse
 document.querySelectorAll('.help').forEach(help => help.style.display = 'none');
 document.querySelectorAll('.help-icon').forEach(icon => {
     // للأجهزة التي تدعم الماوس (سطح المكتب)
@@ -224,4 +217,11 @@ document.addEventListener('click', function (event) {
     });
 });
 
-
+// Prevent changing number inputs value with the mouse wheel
+document.querySelectorAll('input[type=number]').forEach((input) => {
+  input.addEventListener('wheel', function (e) {
+    if (document.activeElement === input) {
+      e.preventDefault();
+    }
+  });
+});

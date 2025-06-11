@@ -1,51 +1,56 @@
-let changeLanguage = document.getElementById('changeLang')
+// Get the language switch button
+let changeLanguage = document.getElementById('changeLang');
 
-let currentLang = 'en';
+// Check if there's a saved language in localStorage; if not, default to 'en'
+let currentLang = localStorage.getItem('lang') || 'en';
 
-changeLanguage.addEventListener('click', () => {
-    currentLang = currentLang === 'en' ? 'ar' : 'en'
-    console.log(`Translate.js: الحالة اتغيرت لـ ${currentLang}`);
-    setLanguage(currentLang);
+// This will store the translation data after fetching
+let translations = {};
 
-    // 1. أنشئ حدث مخصص
-    const event = new CustomEvent('stateChanged', {
-        detail: { newState: currentLang } // ابعت القيمة الجديدة هنا
-    });
-
-    // 2. أطلق الحدث ده عشان أي حد بيسمع له يعرف
-    document.dispatchEvent(event);
-});
-
-
-
-// changeLanguage.addEventListener('click', function() {
-// });
-
+// Fetch the translation file (only once when the page loads)
 fetch('data/data.json')
     .then(res => res.json())
     .then(data => {
         translations = data;
-        console.log(data)
-        setLanguage(currentLang);
+        setLanguage(currentLang); // Apply the saved or default language
     })
     .catch(err => {
         console.error('Failed to load language file:', err);
     });
 
+// Listen for clicks on the language switch button
+changeLanguage.addEventListener('click', () => {
+    // Toggle between 'en' and 'ar'
+    currentLang = currentLang === 'en' ? 'ar' : 'en';
+
+    // Apply the new language to the page
+    setLanguage(currentLang);
+
+    // Save the selected language to localStorage
+    localStorage.setItem('lang', currentLang);
+
+    // Dispatch a custom event so other components can respond if needed
+    const event = new CustomEvent('stateChanged', {
+        detail: { newState: currentLang }
+    });
+    document.dispatchEvent(event);
+});
+
+// Function to apply the selected language
 function setLanguage(lang) {
     const elements = translations[lang];
 
-    for (let id in elements) {
-        const el = document.getElementById(id);
-        if (el) {
-            el.innerHTML = elements[id];
+    // Loop through all translation keys and update matching elements on the page
+    Object.entries(elements).forEach(([id, value]) => {
+        const singleElement = document.getElementById(id);
+        if (singleElement) {
+            singleElement.innerHTML = value;
         }
-    }
+    });
 
-
-
-
-    // لو حابب تغير اتجاه الصفحة
+    // Change page direction (RTL or LTR) depending on the language
     document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+
+    // Update the current language value
     currentLang = lang;
 }

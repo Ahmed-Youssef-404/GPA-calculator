@@ -4,6 +4,19 @@ let changeLanguage = document.getElementById('changeLang');
 // Check if there's a saved language in localStorage; if not, default to 'en'
 let currentLang = localStorage.getItem('lang') || 'en';
 
+document.body.classList.remove('english');
+document.body.classList.remove('arabic');
+
+if (currentLang === 'ar') {
+        // currentLang = 'ar'
+        document.body.classList.remove('english');
+        document.body.classList.add('arabic');
+    } else {
+        // currentLang = 'en'
+        document.body.classList.remove('arabic');
+        document.body.classList.add('english');
+    }
+
 // This will store the translation data after fetching
 let translations = {};
 

@@ -306,7 +306,7 @@ button:hover, button:active {
 
 @media (hover: none) {
     button:hover {
-        background-color: initial !important;
+        background-color: #6a11cb !important;
     }
 }
 

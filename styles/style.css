@@ -298,9 +298,15 @@ button:hover, button:active {
 }
 
 /* للأجهزة التي تدعم hover */
-@media (hover: hover) {
+@media (hover: hover) and (pointer: fine) {
     button:hover {
         background-color: #2575fc;
+    }
+}
+
+@media (hover: none) {
+    button:hover {
+        background-color: initial !important;
     }
 }
 

@@ -227,17 +227,8 @@ document.querySelectorAll('input[type=number]').forEach((input) => {
 });
 
 // Remove :hover action on phones
-document.querySelectorAll('button').forEach(button => {
-  button.addEventListener('touchstart', function() {
-    // إضافة أو إزالة كلاس عند اللمس
-    this.classList.add('active');
-    
-    // إزالة الكلاس عند النقر في أي مكان آخر
-    document.addEventListener('click', function removeActive(e) {
-      if (e.target !== button) {
-        button.classList.remove('active');
-        document.removeEventListener('click', removeActive);
-      }
+document.querySelectorAll("button").forEach(button => {
+    button.addEventListener("touchend", () => {
+        button.blur();
     });
-  });
 });

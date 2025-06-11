@@ -172,10 +172,6 @@ h1 {
         font-size: small;
         /* border: red solid 5px; */
     }
-
-    button:hover {
-        background-color: #6a11cb;
-    }
 }
 
 /* Input Section */
@@ -295,6 +291,7 @@ button {
     font-weight: 600;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    touch-action: manipulation;
 }
 
 @media (hover: hover) {

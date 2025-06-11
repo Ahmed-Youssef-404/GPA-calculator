@@ -149,7 +149,7 @@ function calculateGPA() {
         // Check if any subject grade or credits field is empty
         if (!grade || !credits) {
             isValid = false;
-            showErrorMessage("Please fill in all the subject grades and credits.", ".يرجى ملء جميع درجات المواد والساعات المعتمدة")
+            showErrorMessage("Please fill in all the subject grades and credits.", "يرجى ملء جميع درجات المواد والساعات المعتمدة.")
             return;
         }
 
@@ -224,4 +224,11 @@ document.querySelectorAll('input[type=number]').forEach((input) => {
       e.preventDefault();
     }
   });
+});
+
+// Remove :hover action on phones
+document.querySelectorAll("button").forEach(btn => {
+    btn.addEventListener("touchend", () => {
+        btn.blur();
+    });
 });

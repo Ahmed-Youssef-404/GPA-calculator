@@ -168,10 +168,13 @@ h1 {
 
 @media (max-width: 750px) {
     .popup {
-        /* width: 70%; */
         margin: 0 0 !important;
         font-size: small;
         /* border: red solid 5px; */
+    }
+
+    button:hover {
+        background-color: #6a11cb;
     }
 }
 
@@ -378,4 +381,5 @@ td {
     .math math {
         font-size: 20px;
     }
+
 }
